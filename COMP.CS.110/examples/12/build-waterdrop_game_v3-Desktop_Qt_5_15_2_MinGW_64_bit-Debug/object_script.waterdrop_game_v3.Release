@@ -1,0 +1,12 @@
+release/main.o
+release/drop.o
+release/splash.o
+release/mainwindow.o
+release/dropitem.o
+release/gameengine.o
+release/splashanimation.o
+release/splashitem.o
+release/gameboard.o
+release/moc_mainwindow.o
+release/moc_gameengine.o
+release/moc_gameboard.o
