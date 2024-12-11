@@ -1,0 +1,53 @@
+Polku-peli (säännöt ja perustoiminnot)
+
+Pelin takoituksena on saada palilaudan punaiset ja vihreät pelinappulat vastakkaisille puolille.
+Pelnappuloita ei voi siirtää toistensa yli vaan siirrot tapahtuvat vapaiden paikkojen muodostamaa polkua pitkin.
+Siirto voi kuitenkin olla niin pitkä kuin tällaista polkua pitkin on mahdollista. Peli ilmoittaa mikäli siirto on
+laiton ja sitä ei voi suorittaa.
+
+Peli alkaa silloin, kun pelaaja klikkaa pelilaudan nappulaa. Pelin alkaessa ajastin lähtee käyntiin ja peli alkaa
+laskemaan pelaajan siirtoja sekä pisteitä. Kun pelinappulaa klikkaa se muuttuu keltaiseksi, tällöin pelaaja tietää
+minkä nappulan on valinnut. Mikäli pelaaja haluaa peruuttaa siirtonsa, voi hän painaa samaa nappulaa uudelleen.
+Kun pelaaja valitsee toisen nappulan, sen jälkeen kun ensimmäinen on valittuna, siirto suoritetaan mikäli se on laillinen.
+
+
+Käyttöliittymästä löytyy pelilaudan lisäksi reset-nappi, jota painamalla pelilauta nollaantuu ja ajastin, siirrot sekä pisteet
+nollaantuvat. Animate-nappia painamalla peli animoi mahdollisen suoritustavan minimi siirtomäärällä eli 31-siirrolla. Close-
+nappia painamalla peli sulkeutuu. Käyttöliittymän alareunan pelintila näyttö, kertoo pelaajan toiminnoista ja pelitapahtumista.
+Näyttö kertoo mm. jos pelaaja peruuttaa siirron tai voittaa pelin.
+
+(Toteutus ja koodi)
+
+Pelin pelilauta on toteutettu käyttäen QGridLayouttia sekä QPushbuttoneita. Pelattavissa olevat nappulat ovat klikattavia
+ja muut eivät. Koodin käyttöliittymä ja pohjakoodin peli ovat ns. erillisiä joten koodissa on käynnissa tavallaan samaan aikaan
+kaksi peliä. gameboard luokkaan pohjautuva peli tarkistaa mm. siirtojen laillisuuden ja pelin voittamisen ja käyttöliittymä peli
+Näyttää mitä tapahtuu ja antaa käyttäjän tehdä toimintoja.
+
+Pelilaudan ulkopuolella olevat widgetit ovat QPushButtoneja, QLcdNumbereita sekä QTextBrowser. Nämä widgetit lisäävät
+käyttäjäkokemusta, pelin helppokäyttöisyyttä ja suorittavat toimintoja.
+
+Lisäominaisuudet
+
+Lisäominaisuus 2.
+
+Pelin pistelaskurin, ajastimen sekä siirtolaskurin edessä on käytetty kuvia kuvaamaan, mitä mikäkin QLcdNumber kuvaa.
+Ylimpänä on ajastin toisena siirtolaskuri ja viimeisenä pistelaskuri.
+
+Lisäominaisuus 3.
+
+Pelissä on animate-nappi jota painamalla käyttäjä näkee minimisiirtomäärällä suoritetun pelin. Anbimate toimintoon on käytetty
+QTimer muuttujaa, joka suorittaa siirrot 1sec välein. Animoinnin ollessa käynnissä käyttäjältä estetään pelilaudan käyttö,
+mutta mikäli animointi halutaan keskeyttää tai aloittaa alusta, animate- ja reset-napit ovat käytettävissä.
+
+Lisäominaisuus 4.
+
+Pelissä on toteutettu pistelaskuri. Pistelaskuri laskee reaaliajassa pelaajan suorituskerran pisteet. Pisteet muodostuvat seuraavasti:
+Pelin alussa pelaajalla on 9999 pistettä ja ajan kuluessa, joka sekunti pelaaja menettää 25 pistettä. Tämän lisäksi jokaisesta siirrosta
+menettää 100 pistettä. Mitä suurempi pistemäärä on pelin lopussa sitä parempi.
+
+Lisäominaisuus 6. 
+
+Mikäli pelaaja saa pelin suoritettua minimisiirtomäärällä 31-siirtoa, käyttöliittymän tausta muuttuu kultaiseksi ja pelintila widgetti 
+ilmoittaa pelin voitosta ja minimisiirtomäärästä. Värin vaihto ei tapahdu animointi-nappia käyttämällä, sillä tällöin pelaaja ei ole itse
+suorittanut peliä. Reset-nappia painamall pelin taustaväri muuttuu takaisin valkoiseksi.
+

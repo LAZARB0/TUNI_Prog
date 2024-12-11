@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icon-04.png</file>
+        <file>move_39551.png</file>
+        <file>timer.jpg</file>
+    </qresource>
+</RCC>
