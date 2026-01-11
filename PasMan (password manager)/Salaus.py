@@ -1,6 +1,5 @@
 """
 Creator: Lassi Cederlöf
-Student id number: 150351065
 Email: lassi.cederlof@tuni.fi
 """
 
